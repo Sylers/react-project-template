@@ -1,10 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { saveTokenToLocalStorage, getTokenFromLocalStorage, getUserFromLocalStorage, removeUserFromLocalStorage, removeTokenFromLocalStorage, saveUserToLocalStorage } from '../../utils/utils';
+import { saveTokenToLocalStorage, getTokenFromLocalStorage, getUserFromLocalStorage, removeUserFromLocalStorage, removeTokenFromLocalStorage, saveUserToLocalStorage } from '../utils/utils';
 
 
 const initialState = {
-  user: getUserFromLocalStorage,
-  token: getTokenFromLocalStorage
+  user: getUserFromLocalStorage(),
+  token: getTokenFromLocalStorage()
 };
 
 export const authSlice = createSlice({

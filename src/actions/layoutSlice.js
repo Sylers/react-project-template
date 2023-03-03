@@ -9,7 +9,7 @@ export const layoutSlice = createSlice({
   initialState,
   reducers: {
     toggleSidebar: (state) => {
-      state.sidebarOpen = false
+      state.sidebarOpen = !state.sidebarOpen
     },
   },
 });

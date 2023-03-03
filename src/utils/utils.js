@@ -13,7 +13,7 @@ export const getUserFromLocalStorage = () => {
     return user ? JSON.parse(user) : null;
 }
 export const saveUserToLocalStorage = (user) => {
-    return localStorage.setItem('user', user) ? true : false
+    return localStorage.setItem('user', JSON.stringify(user)) ? true : false
     
 }
 export const removeUserFromLocalStorage = () => {

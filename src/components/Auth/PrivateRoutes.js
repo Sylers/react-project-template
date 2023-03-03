@@ -2,10 +2,10 @@ import React from 'react'
 import { Navigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
-const PrivateRoutes = ({component: Component}) => {
-    const isAuthenticated = useSelector(({authenticated})=> authenticated)
+const PrivateRoutes = ({children}) => {
+    const isAuthenticated = useSelector(({auth})=> auth?.user?.authenticated)
     if(!isAuthenticated) return <Navigate to="login" />;
-    return Component
+    return children
 }
 
 export default PrivateRoutes

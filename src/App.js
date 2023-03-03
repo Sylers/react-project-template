@@ -4,7 +4,7 @@ import { routes } from './routes';
 import { Suspense } from 'react';
 import Layout from './components/Layout';
 import PrivateRoutes from './components/Auth/PrivateRoutes';
-import _404 from './pages/_404';
+import Page404 from './pages/Page404';
 
 const pages = routes.map((route, index) => <Route path={route.path} element={<route.component {...route.props}/>} key={index} />)
 const Login = () => 'Login'
@@ -22,7 +22,7 @@ function App() {
       <Route path='/' element={
               <PrivateRoutes>
                 <Layout>
-                  <Suspense fallback={''}>
+                  <Suspense fallback={<div>Preloading...</div>}>
                     <Outlet />
                   </Suspense>
                 </Layout>
@@ -31,7 +31,7 @@ function App() {
             {pages}
       </Route>
       <Route path='/login' element={<Login />}/>
-      <Route path='*' element={<_404 />} />
+      <Route path='*' element={<Page404 />} />
     </Routes>
   );
 }

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { authFailed } from '../actions/auth/authSlice';
+import { authFailed } from '../actions/authSlice';
 import store from '../store';
 
 export const handleError = (error) => {
