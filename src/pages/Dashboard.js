@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { getRequest, getRequestWithHeaders } from '../api/api'
+import FormSelect from '../components/Form/FormSelect'
 
 const Dashboard = () => {
     useEffect(() => {
@@ -9,7 +10,9 @@ const Dashboard = () => {
         })
     }, [])
   return (
-    <div>Dashboard</div>
+    <div>Dashboard
+        <FormSelect id='id' value='' options={['a','b','c']} onChange={()=>''}/>
+    </div>
   )
 }
 
