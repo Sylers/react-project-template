@@ -13,8 +13,8 @@ const Sidebar = () => {
 
   return (
     <div ref={ref}>
-        <div onClick={()=>dispatch(toggleSidebar())}>Toggle/Close Button</div>
-        Sidebar
+        <button onClick={()=>dispatch(toggleSidebar())}>Toggle Sidebar function</button>
+        <div>Sidebar state:{isSidebarOpen ? 'open' : 'close'}</div>
     </div>
   )
 }

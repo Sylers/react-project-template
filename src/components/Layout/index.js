@@ -3,12 +3,12 @@ import Footer from './Footer/Footer'
 import Header from './Header/Header'
 import Sidebar from './Sidebar/Sidebar'
 
-const Layout = ({component: Component}) => {
+const Layout = ({children}) => {
   return (
     <>
         <Header>Header</Header>
         <Sidebar></Sidebar>
-        <div className='content'>{Component}</div>
+        <div className='content'>{children}</div>
         <Footer>Footer</Footer>
     </>
   )

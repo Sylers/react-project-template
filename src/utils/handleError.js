@@ -1,9 +1,9 @@
 import axios from 'axios';
 import { authFailed } from '../actions/authSlice';
-import store from '../store';
+import {store} from '../store';
 
 export const handleError = (error) => {
-  if (axios.isCancel(error)) return error
+  // if (axios.isCancel(error)) return error
 
   if (!error.response) {
     //NOTE:this will also happen if server request fails
@@ -17,7 +17,7 @@ export const handleError = (error) => {
   }
 
   if (error.response.status === 403) {
-    console.log('Error Status Code: 403:', error.response.status);
+    console.log('Error Status Code: 403:', error);
     return error;
   }
 
@@ -43,7 +43,7 @@ export const handleError = (error) => {
 
       if (err) {
         console.log('err', err);
-        console.log('Model Error', obj.split('.')[1] ?? obj) + '=>' + err.split('. Path')[0];
+        console.log('Model Error', obj.split('.')[1] ?? obj + '=>' + err.split('. Path')[0]);
       }
       return error;
     } catch (errors) {

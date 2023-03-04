@@ -14,9 +14,10 @@ import { handleError } from './handleError';
   another instance of the axios client.
 */
 export const setup = () => {
-  axios.defaults.baseURL = url;
+  axios.defaults.baseURL = '';
   axios.defaults.headers.post['Content-Type'] = 'application/json';
-  axios.defaults.beforeRedirect((options, { headers }) => {}),
+  // axios.defaults.headers['X-API-KEY'] = 'some-api-key';
+  // axios.defaults.headers['X-API-HOST'] = 'api host';
   axios.interceptors.request.use((config) => {
     // Do something before request is sent
     const token = store.getState().auth?.token;
@@ -26,6 +27,7 @@ export const setup = () => {
 
   (error) => {
     // Do something with request error
+    console.log('Request error', error);
     return Promise.reject(error);
   });
 

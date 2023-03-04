@@ -1,14 +1,18 @@
 import { Routes, Route, Outlet } from 'react-router-dom'
 import './App.css';
 import { routes } from './routes';
-import { Suspense } from 'react';
+import { Suspense, useEffect } from 'react';
 import Layout from './components/Layout';
 import PrivateRoutes from './components/Auth/PrivateRoutes';
 import Page404 from './pages/Page404';
+import { setup } from './utils/appUtils';
 
 const pages = routes.map((route, index) => <Route path={route.path} element={<route.component {...route.props}/>} key={index} />)
 const Login = () => 'Login'
 function App() {
+  useEffect(() => {
+    setup()
+  }, [])
   return (
     /*Note: The protected routes are wrapped with 
       the <PrivateRoutes> component (i.e users must be 

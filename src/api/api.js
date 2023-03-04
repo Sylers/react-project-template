@@ -24,10 +24,17 @@ export const postRequestWithHeaders = async (url, method, data, headers) => (
     })
 ).data;
 
+export const getRequestWithHeaders = async (url, method, headers) => (
+    await axios({
+      url,
+      method: 'get',
+      headers
+    })
+).data;
 /* 
   To download files from a server
   This works for file that needs authentication too
-  using Bearer token which has been setup in the setup
+  using Bearer token which has been configured in the setup
   function in utils/appUtils.
 */
 // export const downloadFile = async (url) => {
