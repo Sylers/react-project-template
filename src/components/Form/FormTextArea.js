@@ -1,8 +1,15 @@
 import React from 'react'
 
-const FormTextArea = () => {
+const FormTextArea = ({id, name, value, className, onChange, children, defaultValue, ...rest}) => {
   return (
-    <div>FormTextArea</div>
+    <textarea 
+      id={id || ''} 
+      name={name || ''} 
+      onChange={onChange} 
+      className={className || 'default-class-name'} {...rest}
+      value={value || ''}
+    >
+    </textarea>
   )
 }
 

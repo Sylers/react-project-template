@@ -5,13 +5,15 @@ import { Suspense, useEffect } from 'react';
 import Layout from './components/Layout';
 import PrivateRoutes from './components/Auth/PrivateRoutes';
 import Page404 from './pages/Page404';
-import { setup } from './utils/appUtils';
+import Login from './pages/Login';
+import { initialize } from './utils/appUtils';
+import { ThemeContextProvider } from './context/themeContext';
 
 const pages = routes.map((route, index) => <Route path={route.path} element={<route.component {...route.props}/>} key={index} />)
-const Login = () => 'Login'
+
 function App() {
   useEffect(() => {
-    setup()
+    initialize()
   }, [])
   return (
     /*Note: The protected routes are wrapped with 
@@ -22,6 +24,7 @@ function App() {
       declared directly below using the self closing <Route />
       component. e.g Login Page, Landing Page
     */
+   <ThemeContextProvider>
     <Routes>
       <Route path='/' element={
               <PrivateRoutes>
@@ -37,6 +40,7 @@ function App() {
       <Route path='/login' element={<Login />}/>
       <Route path='*' element={<Page404 />} />
     </Routes>
+  </ThemeContextProvider>
   );
 }
 

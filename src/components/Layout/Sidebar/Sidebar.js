@@ -8,13 +8,10 @@ const Sidebar = () => {
 
     const isSidebarOpen = useSelector(({layout})=>layout?.sidebarOpen)
 
-
-    console.log('isSidebarOpen', isSidebarOpen);
-
   return (
     <div ref={ref}>
         <button onClick={()=>dispatch(toggleSidebar())}>Toggle Sidebar function</button>
-        <div>Sidebar state:{isSidebarOpen ? 'open' : 'close'}</div>
+        <span>{'=>'} {isSidebarOpen ? 'Open' : 'Closed'}</span>
     </div>
   )
 }

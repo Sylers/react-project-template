@@ -1,8 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import ThemeContext from '../../../context/themeContext'
 
-const Header = ({name}) => {
+const Header = ({name, ...rest}) => {
+  const {isDarkTheme, toggleTheme} = useContext(ThemeContext)
   return (
-    <div>Header</div>
+    <div>
+      Header
+      <button onClick={toggleTheme}>Toggle Theme</button>
+      <span>{ isDarkTheme ? 'DarkTheme' : 'LightTheme'}</span>
+    </div>
   )
 }
 

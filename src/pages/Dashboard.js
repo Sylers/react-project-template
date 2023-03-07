@@ -1,6 +1,8 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useContext } from 'react'
 import { getRequest, getRequestWithHeaders } from '../api/api'
+import FormInput from '../components/Form/FormInput'
 import FormSelect from '../components/Form/FormSelect'
+import FormTextArea from '../components/Form/FormTextArea'
 
 const Dashboard = () => {
     useEffect(() => {
@@ -10,8 +12,12 @@ const Dashboard = () => {
         })
     }, [])
   return (
-    <div>Dashboard
-        <FormSelect id='id' value='' options={['a','b','c']} onChange={()=>''}/>
+    <div>
+      Dashboard
+      <div>Form Component Sample:</div>
+      <FormSelect name='inputname' value={''} className='' options={['first','second','third']} onChange={()=>''}/><br />
+      <FormInput name='inputname' value={''} className='' placeholder={'e.g placeholder'} onChange={()=>''}/><br/>
+      <FormTextArea onChange={()=>''} className='' value={''}/>
     </div>
   )
 }

@@ -13,7 +13,7 @@ import { handleError } from './handleError';
   a particular request, you can create
   another instance of the axios client.
 */
-export const setup = () => {
+export const initialize = () => {
   axios.defaults.baseURL = '';
   axios.defaults.headers.post['Content-Type'] = 'application/json';
   // axios.defaults.headers['X-API-KEY'] = 'some-api-key';

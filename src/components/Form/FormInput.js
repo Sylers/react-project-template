@@ -1,14 +1,16 @@
 import React from 'react'
 
-const FormInput = ({id, name, type, value, placeholder, className, showPassword, ...rest}) => {
+const FormInput = ({id, name, type, value, placeholder, className, onChange, showPassword, autoComplete, ...rest}) => {
   return (
     <input 
-        id={id}
+        id={id || ''}
         name={name || ''}
         placeholder={placeholder}
         value={value || ''}
         type={showPassword ? 'text' : type || 'text'}
         className={className ? className : 'default-input-class'}
+        autoComplete={autoComplete}
+        onChange={onChange}
         {...rest}
     />
   )

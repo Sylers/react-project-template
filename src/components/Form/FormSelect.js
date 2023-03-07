@@ -15,11 +15,11 @@ const FormSelect = ({id, name, value, defaultValue, options=[], multiple, onChan
   return (
     <select
         {...rest}
-        id={id}
+        id={id || ''}
         value={value || ''}
         name={name || ''}
         multiple={multiple || false}
-        onChange={onChange || function(){}}
+        onChange={onChange}
     >
         {options[0] && Array.isArray(options) ? options.map((option, index) => {
             return (<option value={option} key={index}>{option}</option>)
